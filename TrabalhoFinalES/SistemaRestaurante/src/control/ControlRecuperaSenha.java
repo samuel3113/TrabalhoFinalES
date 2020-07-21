@@ -1,67 +1,24 @@
 package control;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.swing.JOptionPane;
-
-import connection.ConnectionFactory;
+import dao.RecuperaSenhaDAO;
 import model.ModelRecuperaSenha;
 
 public class ControlRecuperaSenha {
-	Connection con = new ConnectionFactory().getConnection();
-	PreparedStatement stmt = null;
-	ResultSet rs = null;
-	ModelRecuperaSenha recuperar = new ModelRecuperaSenha();
-	
-	
-	public String returnPergunta(ModelRecuperaSenha modUser) {
-		String pergunta;
-		String sql = "select * from usuarios where nickname = '" + modUser.getUsuario() + "';";
+	public String returnPergunta(String usuario) {
+		RecuperaSenhaDAO dao = new RecuperaSenhaDAO();
+		ModelRecuperaSenha model = new ModelRecuperaSenha(usuario);
 		
-		try {
-			stmt = con.prepareStatement(sql);
-			rs = stmt.executeQuery();
-			
-			while(rs.next()) {
-			
-				pergunta = rs.getString("pergunta");
-				return pergunta;
-			
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		}
-		return null;
+		String pergunta = dao.returnPergunta(model);
+		return pergunta;
 	}
-
-
-	public boolean validResposta(ModelRecuperaSenha modSenha) {
-		String senha;
-		String sql = "select * from usuarios where nickname = '" + modSenha.getUsuario() + "';";
+	public String validResposta(String usuario, String resposta) {
+		String password;
 		
-		try {
-			stmt = con.prepareStatement(sql);
-			rs = stmt.executeQuery();
-			
-			while(rs.next()) {
-				if(rs.getString("resposta").equals(modSenha.getResposta())) {
-					senha = rs.getString("senha");
-				    
-				    JOptionPane.showMessageDialog(null, "Sua senha é: " + senha);
-					return true;
-				}
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			ConnectionFactory.closeConnection(con, stmt, rs);
-		}
-		return false;
+		RecuperaSenhaDAO dao = new RecuperaSenhaDAO();
+		ModelRecuperaSenha model = new ModelRecuperaSenha(usuario, resposta);
+		
+		password = dao.validResposta(model);
+		return password;
 	}
+	
 }

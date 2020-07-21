@@ -7,9 +7,12 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/samuel/Downloads/mariadb-java-client-2.6.0.jar"/>
-	<classpathentry kind="lib" path="jgoodies-common-1.8.0.jar" sourcepath="jgoodies-common-1.8.0-sources.jar"/>
-	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="/home/samuel/Downloads/Dependências/mariadb-java-client-2.6.0.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/Área de Trabalho/ESnew/TrabalhoFinalES/SistemaRestaurante/libs/itextpdf-5.5.13.1.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/Área de Trabalho/ESnew/TrabalhoFinalES/SistemaRestaurante/libs/jgoodies-common-1.8.0.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/Área de Trabalho/ESnew/TrabalhoFinalES/SistemaRestaurante/libs/jgoodies-common-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/Área de Trabalho/ESnew/TrabalhoFinalES/SistemaRestaurante/libs/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/Área de Trabalho/ESnew/TrabalhoFinalES/SistemaRestaurante/libs/jgoodies-forms-1.8.0-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
